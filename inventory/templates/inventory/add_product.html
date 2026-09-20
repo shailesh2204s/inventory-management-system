@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 30px;
+        }
+
+        .form-box {
+            width: 450px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center; margin-bottom: 20px;">
+    ➕ Add New Product
+</h1>
+
+<form method="POST" style="max-width: 450px; margin: 30px auto; padding: 25px; background: white; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.15);">
+    {% csrf_token %}
+
+    <label>Name:</label>
+    <input type="text" name="name"><br><br>
+
+    <label>Category:</label>
+    <input type="text" name="category"><br><br>
+
+    <label>Price:</label>
+    <input type="number" name="price" step="0.01" min="0">
+
+    <label>Quantity:</label>
+    <input type="number" name="quantity" min="0">
+
+    <label>Supplier:</label>
+    <input type="text" name="supplier"><br><br>
+    <button type="submit"
+    style="width: 100%; padding: 12px; background: #333; color: white; border: none; border-radius: 6px; cursor: pointer;">
+    ➕ Add Product
+</button>
+</form>
+
+</body>
+<div style="text-align: center; margin: 20px;">
+    <a href="{% url 'dashboard' %}"
+       style="display: inline-block;
+              padding: 10px 18px;
+              background: #555;
+              color: white;
+              text-decoration: none;
+              border-radius: 6px;">
+        🏠 Back to Dashboard
+    </a>
+</div>
+</html>

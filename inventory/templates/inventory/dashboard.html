@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Inventory Dashboard</title>
+
+    <style>
+    .nav-link {
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 5px;background: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+    }
+
+.nav-link:hover {
+    opacity: 0.8;
+}
+    .card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        text-align: center;
+        min-width: 180px;
+    }
+    .card h2 {
+        margin-bottom: 10px;
+    }
+    .card p {
+        font-size: 24px;
+        font-weight: bold;
+    }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            width: 180px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        .card h2 {
+            margin: 10px 0;
+        }
+
+        .menu {
+            text-align: center;
+            margin: 25px;
+        }
+
+        .menu a {
+            display: inline-block;
+            padding: 12px 18px;
+            margin: 5px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            background: white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<head>
+    <title>Inventory Management System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 220px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #555;
+        }
+
+        .card p {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        .menu {
+            margin-top: 30px;
+        }
+
+        .menu a {
+            display: inline-block;
+            padding: 12px 20px;
+            margin-right: 10px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body style="
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.8) 0, transparent 25%),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.6) 0, transparent 25%),
+    linear-gradient(135deg, #dbeafe, #f8fafc);
+    min-height: 100vh;
+">
+    
+    <div style="position: fixed; top: 10px; left: 10px; z-index: 1000;"></div>
+    <button onclick="toggleMenu()"
+            style="font-size: 25px;
+                   background: #333;
+                   color: white;
+                   border: none;
+                   border-radius: 6px;
+                   padding: 8px 12px;
+                   cursor: pointer;">
+        ☰
+    </button>
+</div>
+
+    <div class="header">
+        📦 Inventory Management System
+    </div>
+
+    <div class="container" style="padding: 30px 20px;"></div>
+    
+        
+        <a href="{% url 'logout' %}">
+        </a>
+        <div style="text-align: center; margin: 20px;">
+        </div>
+        <p style="text-align: center; font-size: 18px; color: #555;">
+        Welcome to your Inventory Management System
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Products</h3>
+                <p>{{ total_products }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Available Stock</h3>
+                <p>{{ available_stock }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Low Stock</h3>
+                <p>{{ low_stock }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Sales</h3>
+                <p>₹{{ total_sales }}</p>
+            </div>
+
+        </div>
+
+        <div class="menu">
+            <a href="{% url 'products' %}">Products</a>
+            <a href="{% url 'add_product' %}">Add Product</a>
+            <a href="{% url 'add_sale' %}">Add Sale</a>
+            <a href="{% url 'sales_history' %}">Sales History</a>
+            <a href="{% url 'suppliers' %}">Suppliers</a>
+            <a href="{% url 'reports' %}">Reports</a>
+        </div>
+
+    </div>
+<h2>⚠️ Low Stock Products</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Product</th>
+        <th>Category</th>
+        <th>Quantity Left</th>
+    </tr>
+
+    {% for product in low_stock_products %}
+    <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.quantity }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No low stock products.</td>
+    </tr>
+    {% endfor %}
+</table>    
+<h2>Sales History</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Product</th>
+        <th>Quantity Sold</th>
+        <th>Total Price</th>
+    </tr>
+
+    {% for sale in sales %}
+    <tr>
+        <td>{{ sale.product.name }}</td>
+        <td>{{ sale.quantity }}</td>
+        <td>₹{{ sale.total_price }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="3">No sales recorded yet.</td>
+    </tr>
+    {% endfor %}
+</table>
+<div id="sideMenu"
+     style="position: fixed;
+            top: 0;
+            left: -260px;
+            width: 240px;
+            height: 100%;
+            overflow-y: auto;
+            background: #ffffff;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            padding: 70px 10px 20px 10px;
+            transition: 0.3s;
+            z-index: 999;">
+
+    <h2 style="text-align: center;">📋 Menu</h2>
+    <button onclick="toggleMenu()"
+        style="position: absolute;
+               top: 15px;
+               right: 15px;
+               font-size: 20px;
+               background: #333;
+               color: white;
+               border: none;
+               border-radius: 5px;
+               padding: 5px 10px;
+               cursor: pointer;">
+    ✕
+</button>
+
+    <a href="{% url 'products' %}" class="menu-link">📦 Products</a>
+    <a href="{% url 'add_product' %}" class="menu-link">➕ Add Product</a>
+    <a href="{% url 'profile' %}" class="menu-link">👤 Profile</a>
+    <a href="{% url 'suppliers' %}" class="menu-link">🏢 Suppliers</a>
+    <a href="{% url 'add_sale' %}" class="menu-link">🛒 Add Sale</a>
+    <a href="{% url 'sales_history' %}" class="menu-link">📋 Sales History</a>
+    <a href="{% url 'reports' %}" class="menu-link">📊 Reports</a>
+    <a href="{% url 'stock_prediction' %}" class="menu-link">
+    🔮 Smart Stock Prediction
+</a>
+<a href="{% url 'inventory_health' %}" class="menu-link">
+    📊 Inventory Health Score
+</a>
+<a href="{% url 'dead_stock' %}" class="menu-link">
+    💤 Dead Stock Detector
+</a>
+<a href="{% url 'restock_suggestions' %}" class="menu-link">
+    🛒 Smart Restock Suggestions
+</a>
+<a href="{% url 'activity_timeline' %}" class="menu-link">
+    🕒 Activity Timeline
+</a>
+    <a href="{% url 'settings' %}" class="menu-link">⚙️ Settings</a>
+    <a href="{% url 'logout' %}" class="menu-link">🚪 Logout</a>
+
+</div>
+
+<style>
+    .menu-link {
+        display: block;
+        padding: 12px;
+        margin: 8px 0;
+        background: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+    }
+
+    .menu-link:hover {
+        opacity: 0.8;
+    }
+</style>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById("sideMenu");
+
+        if (menu.style.left === "0px") {
+            menu.style.left = "-260px";
+        } else {
+            menu.style.left = "0px";
+        }
+    }
+</script>
+</body>
+</html>

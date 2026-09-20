@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+        }
+
+        .profile-box {
+            max-width: 400px;
+            margin: 70px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            background: #555;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile-box">
+
+    <h1>✏️ Edit Profile</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <label>Username</label>
+        <input type="text"
+               value="{{ user.username }}"
+               disabled>
+
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               value="{{ user.email }}"
+               placeholder="Enter your email">
+
+        <button type="submit">
+            💾 Save Changes
+        </button>
+    </form>
+
+    <a href="{% url 'profile' %}" class="back">
+        👤 Back to Profile
+    </a>
+
+</div>
+
+</body>
+</html>

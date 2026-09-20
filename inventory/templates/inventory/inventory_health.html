@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventory Health Score</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .health-container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .score-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            margin-bottom: 25px;
+        }
+
+        .score {
+            font-size: 70px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .score-label {
+            font-size: 20px;
+            color: #555;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: white;
+            width: 220px;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #666;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 18px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>📊 Inventory Health Score</h1>
+
+<div class="health-container">
+
+    <div class="score-card">
+        <div class="score">
+            {{ health_score }}/100
+        </div>
+
+        <div class="score-label">
+            Overall Inventory Health
+        </div>
+    </div>
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <div class="stat-number">
+                {{ total_products }}
+            </div>
+
+            <div class="stat-label">
+                Total Products
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">
+                {{ low_stock_products }}
+            </div>
+
+            <div class="stat-label">
+                Low Stock Products
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-number">
+                {{ out_of_stock_products }}
+            </div>
+
+            <div class="stat-label">
+                Out of Stock
+            </div>
+        </div>
+
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{% url 'dashboard' %}" class="back">
+            🏠 Back to Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

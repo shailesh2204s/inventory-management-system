@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+        }
+
+        .settings-box {
+            max-width: 450px;
+            margin: 70px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .setting-item {
+            display: block;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f1f1f1;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="settings-box">
+
+    <h1>⚙️ Settings</h1>
+    <a href="{% url 'profile' %}" class="setting-item">👤 Account Settings</a>
+    <a href="{% url 'change_password' %}" class="setting-item">🔑 Password Settings</a>
+    <a href="{% url 'edit_profile' %}" class="setting-item">📧 Email Settings</a>
+    <div class="setting-item">🛡️ Privacy Settings</div>
+
+    <a href="{% url 'dashboard' %}" class="back">
+        🏠 Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>
